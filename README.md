@@ -1,6 +1,6 @@
 mqtt-local-forwarder.rb
 ====
-* [img01.png](img01.png)
+* ![img01.png](img01.png)
 
 How to use
 ----
