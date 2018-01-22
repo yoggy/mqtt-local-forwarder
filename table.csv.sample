@@ -1,0 +1,4 @@
+#subscribe_topic,publis_topic
+local/topic01,remote/topic01
+local/topic02,remote/topic02
+local/topic03,remote/topic03
