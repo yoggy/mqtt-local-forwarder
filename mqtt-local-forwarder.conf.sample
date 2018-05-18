@@ -1,0 +1,33 @@
+;
+; mqtt-local-forwarder.conf - for supervisord configuration file
+;
+; install
+;     $ sudo apt-get install supervisor
+;     $ pwd
+;       (check your scrpt path...)
+;     $ sudo cp mqtt-local-forwarder.conf.sample /etc/supervisor/conf.d/mqtt-local-forwarder.conf
+;     $ sudo vi /etc/supervisor/conf.d/mqtt-local-forwarder.conf
+;       (fix path, etc...)
+;     $ sudo supervisorctl reread
+;     $ sudo supervisorctl add mqtt-local-forwarder
+;     $ sudo supervisorctl status
+;     mqtt-local-forwarder        RUNNING    pid 8192, uptime 0:00:30
+;
+; see also
+;     Supervisor: A Process Control System
+;     http://supervisord.org/
+;
+[program:mqtt-local-forwarder]
+command                 = /usr/bin/ruby ./mqtt-local-forwarder.rb
+directory               = /home/pi/work/mqtt-local-forwarder/
+user                    = pi
+numprocs                = 1
+autostart               = true
+autorestart             = true
+redirect_stderr         = true
+stdout_logfile          = /home/pi/work/mqtt-local-forwarder/log.txt
+startsecs               = 1
+startretries            = 10
+stdout_logfile_maxbytes = 1MB
+stdout_logfile_backups  = 1
+
